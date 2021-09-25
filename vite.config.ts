@@ -2,8 +2,8 @@ import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
+import WindiCSS from 'vite-plugin-windicss'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
@@ -45,6 +45,7 @@ export default defineConfig({
         "display": "standalone"
       }
     }),
-    preact()
+    preact(),
+    WindiCSS()
   ]
 })
