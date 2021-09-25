@@ -1,1 +1,0 @@
-export { HomeRoutes } from './Routes'
