@@ -14,12 +14,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "noImplicitAny": true,
     "jsx": "preserve",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "types": [
       "vite-plugin-pwa/client"
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["**/node_modules/**/*.d.ts", "**/*.spec.ts", "**/*.test.*", "./dist/**/*"]
 }
