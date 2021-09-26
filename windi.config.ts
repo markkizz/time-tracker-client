@@ -24,7 +24,10 @@ export default defineConfig({
         DEFAULT: '#E8F8FC'
       },
       neutralBlue: '#F5F8FA',
-      error: colors.red[600]
+      error: {
+        light: colors.red[200],
+        DEFAULT: colors.red[600]
+      }
     },
     fontSize: {
       xs: '12px',

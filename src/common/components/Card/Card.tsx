@@ -1,8 +1,13 @@
 import { FunctionalComponent } from 'preact'
 
-export const Card: FunctionalComponent = (props) => {
+export interface ICardProps {
+  className?: string
+}
+
+export const Card: FunctionalComponent<ICardProps> = (props) => {
+  const className = `bg-white rounded-md <md:w-xs lg:w-sm p-4 shadow-dropShadow${props.className ? ` ${props.className}` : ''}`
   return (
-    <div className="bg-white rounded-md <md:w-xs lg:w-sm p-4 shadow-dropShadow">
+    <div className={className}>
       {props.children}
     </div>
   )
