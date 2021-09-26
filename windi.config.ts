@@ -2,6 +2,9 @@ import { defineConfig, transform } from 'windicss/helpers'
 import colors from 'windicss/colors'
 
 export default defineConfig({
+  corePlugins: {
+    container: false
+  },
   extract: {
     include: ['src/**/*.{vue,html,jsx,tsx}'],
     exclude: ['node_modules', '.git'],
@@ -11,7 +14,7 @@ export default defineConfig({
       ...colors,
       primary: {
         light: '#E8F8FC',
-        dark: '#383C6B',
+        dark: '#25284B',
         DEFAULT: '#383C6B'
       },
       secondary: {

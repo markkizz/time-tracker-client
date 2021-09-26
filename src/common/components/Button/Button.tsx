@@ -2,19 +2,24 @@ import { FunctionalComponent } from 'preact'
 
 export interface IButtonProps extends JSX.HTMLAttributes<HTMLButtonElement> {
   //
+  // loading?: boolean
+  btnLoading?: boolean
 }
 
 export const Button: FunctionalComponent<IButtonProps> = ({
   className,
+  btnLoading = false,
   ...props
 }) => {
   // hover:bg-blue-600 active:bg-blue-700
   const buttonClassName =
-    'px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none transition text-white bg-primary ' +
+    'px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-primary hover:bg-primary-dark' +
     ` ${className}`
   return (
-    <button {...props} className={buttonClassName}>
-      {props.children}
-    </button>
+    <>
+      <button {...props} className={buttonClassName}>
+        {props.children}
+      </button>
+    </>
   )
 }
