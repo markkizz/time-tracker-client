@@ -4,6 +4,7 @@ import logoSrc from '@/assets/hourglass.png'
 
 import Card from '@/common/components/Card'
 import Input, { PasswordInput } from '@/common/components/Input'
+import Button from '@/common/components/Button'
 
 export const Login = () => {
   const isAuthenticated = false
@@ -29,11 +30,12 @@ export const Login = () => {
             />
           </div>
           <div className="col-12 flex justify-center">
-            <PasswordInput
-              label="Password"
-              className="w-250px"
-              hideDetails
-            />
+            <PasswordInput label="Password" className="w-250px" hideDetails />
+          </div>
+          <div className="col-12 flex justify-center">
+            <Button className="w-250px h-40px flex items-center justify-center">
+              Sign In
+            </Button>
           </div>
         </div>
       </Card>

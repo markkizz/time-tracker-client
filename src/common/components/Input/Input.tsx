@@ -29,7 +29,7 @@ export const Input: FunctionalComponent<InputProps> = ({
 }) => {
   const inputClassName = `text-sm sm:text-base relative w-full bg-secondary border ${
     errorMessage ? 'border-error' : 'border-secondary'
-  } rounded placeholder-gray-400  focus:outline-none py-2 pr-2 pl-2${
+  } rounded placeholder-gray-400  focus:outline-none p-2 ${
     className ? ` ${className}` : ''
   }`
   return (

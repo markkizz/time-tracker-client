@@ -84,6 +84,9 @@ export default defineConfig({
         9: '36px',
         10: '40px',
       },
+      boxShadow: {
+        dropShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      }
     }
   },
   plugins: [
