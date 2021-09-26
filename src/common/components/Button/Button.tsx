@@ -1,8 +1,7 @@
 import { FunctionalComponent } from 'preact'
+import Loading from '../Loading'
 
 export interface IButtonProps extends JSX.HTMLAttributes<HTMLButtonElement> {
-  //
-  // loading?: boolean
   btnLoading?: boolean
 }
 
@@ -13,12 +12,12 @@ export const Button: FunctionalComponent<IButtonProps> = ({
 }) => {
   // hover:bg-blue-600 active:bg-blue-700
   const buttonClassName =
-    'px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-primary hover:bg-primary-dark' +
+    'flex justify-center items-center justtify px-4 py-2 rounded-md text-sm font-medium border-0 focus:outline-none focus:ring transition text-white bg-primary hover:bg-primary-dark' +
     ` ${className}`
   return (
     <>
       <button {...props} className={buttonClassName}>
-        {props.children}
+        {btnLoading ? <Loading size="28" /> : props.children}
       </button>
     </>
   )
