@@ -4,6 +4,12 @@ import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
 import './index.css'
 import 'virtual:windi-utilities.css'
-import 'virtual:windi-devtools'
+
+(async () => {
+  // @ts-ignore
+  const devtools = () => import('virtual:windi-devtools')
+  if (import.meta.env.MODE === 'production') return
+  await devtools()
+})()
 
 render(<App />, document.getElementById('app')!)
