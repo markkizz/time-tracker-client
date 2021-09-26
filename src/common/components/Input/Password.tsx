@@ -1,8 +1,9 @@
 import { FunctionalComponent } from 'preact'
 import { useState } from 'preact/hooks'
+import { InputProps } from '.'
 import { Input } from './Input'
 
-export interface IPasswordInputProps {
+export interface IPasswordInputProps extends InputProps {
   id?: string
   label?: string
   labelFor?: string

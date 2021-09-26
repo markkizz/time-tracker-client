@@ -1,6 +1,6 @@
-import { ComponentType, FunctionalComponent } from 'preact'
+import { ComponentType, FunctionalComponent, JSX } from 'preact'
 
-export interface InputProps {
+export interface InputProps extends JSX.HTMLAttributes<HTMLInputElement> {
   id?: string
   label?: string
   labelFor?: string
@@ -25,7 +25,8 @@ export const Input: FunctionalComponent<InputProps> = ({
   placeHolder,
   type = 'text',
   inputName,
-  append: AppendComponent
+  append: AppendComponent,
+  ...props
 }) => {
   const inputClassName = `text-sm sm:text-base relative w-full bg-secondary border ${
     errorMessage ? 'border-error' : 'border-secondary'
@@ -51,6 +52,7 @@ export const Input: FunctionalComponent<InputProps> = ({
           type={type}
           placeholder={placeHolder}
           className={inputClassName}
+          {...props}
         />
         {AppendComponent && (
           <div className="absolute flex right-0 top-0 h-full w-10">
