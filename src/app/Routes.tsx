@@ -5,7 +5,7 @@ import Home from '../features/clock'
 import { Login } from '@/features/authentication'
 
 const Routes = () => {
-  const isAuthenticated = true
+  const isAuthenticated = false
   const [location, setLocation] = useLocation()
   useEffect(() => {
     if (location === '/') {
