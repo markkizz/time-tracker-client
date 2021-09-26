@@ -57,7 +57,7 @@ export const Login = () => {
             </div>
             <div className="col-12 flex justify-center">
               <Input
-                name="email"
+                name="username"
                 label="Email"
                 type="email"
                 className="w-250px"
@@ -72,13 +72,13 @@ export const Login = () => {
                 name="password"
                 label="Password"
                 className="w-250px"
-                hideDetails
                 value={formik.values.password}
+                errorMessage={formik.errors.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
             </div>
-            <div className="col-12 flex justify-center !mt-8">
+            <div className="col-12 flex justify-center">
               <Button
                 className="w-250px h-40px flex items-center justify-center"
                 type="submit"
