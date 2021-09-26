@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",
-    "wouter-preact": "^2.7.4"
+    "wouter-preact": "^2.7.4",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
