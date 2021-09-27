@@ -9,9 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.21.4",
+    "dayjs": "^1.10.7",
     "formik": "^2.2.9",
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",
+    "query-string": "^7.0.1",
     "wouter-preact": "^2.7.4",
     "yup": "^0.32.9"
   },
