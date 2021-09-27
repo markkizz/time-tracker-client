@@ -17,7 +17,7 @@ export const Button: FunctionalComponent<IButtonProps> = ({
   return (
     <>
       <button {...props} className={buttonClassName}>
-        {btnLoading ? <Loading size="28" /> : props.children}
+        {btnLoading ? <Loading /> : props.children}
       </button>
     </>
   )

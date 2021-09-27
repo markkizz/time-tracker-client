@@ -61,7 +61,7 @@ export const Input: FunctionalComponent<InputProps> = ({
         )}
       </div>
       {errorMessage && (
-        <span class="flex items-center tracking-wide text-red-500 text-xs mt-1 ml-2">
+        <span class="flex items-center tracking-wide text-red-500 text-xs mt-1 ml-2 transition">
           {errorMessage}
         </span>
       )}

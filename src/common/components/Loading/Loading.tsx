@@ -6,13 +6,10 @@ export interface ILoadingProps {
   size?: string
 }
 
-export const Loading: FunctionalComponent<ILoadingProps> = ({
-  size = '32',
-  thickSize = '3'
-}) => {
+export const Loading: FunctionalComponent<ILoadingProps> = () => {
   return (
     <div
-      className={`lds-dual-ring after:w-${size}px after:h-${size}px after:border-${thickSize}px`}
+      className="lds-dual-ring after:w-32px after:h-32px after:border-3px"
     />
   )
 }
