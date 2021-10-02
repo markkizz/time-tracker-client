@@ -27,7 +27,7 @@ export default defineConfig({
       mode: 'development',
       registerType: "prompt",
       base: '/',
-      includeAssets: ['hourglass.png'],
+      includeAssets: ['hourglass.png', 'favicon.ico'],
       manifest: {
         "name": "Simple time tracker",
         "short_name": "time tracker",
