@@ -1,5 +1,7 @@
+import { AxiosError } from 'axios'
+import { clearToken } from '@/features/authentication/utils'
 import { HttpClient } from '../http'
-import { ILoginResponse } from './types'
+import { ILatestTimeEntry, ILoginResponse } from './types'
 
 export class TimeTrackerHttpClient {
   private _httpClient: HttpClient
@@ -23,7 +25,22 @@ export class TimeTrackerHttpClient {
       (error) => Promise.reject(error)
     )
 
+    client.registerResponseInterceptor(
+      (response) => response,
+      (error) => {
+        const err = error as AxiosError
+        if (err.response?.status === 401) {
+          clearToken()
+        }
+        Promise.reject(error)
+      }
+    )
+
     this._httpClient = client
+  }
+
+  public async healthCheck() {
+    await this._httpClient.get('/')
   }
 
   public async login(username: string, password: string) {
@@ -34,6 +51,11 @@ export class TimeTrackerHttpClient {
       username,
       password
     })
+    return response.data
+  }
+
+  public async getLatestTimeEntry() {
+    const response = await this._httpClient.get<ILatestTimeEntry>('/v1/timetracker')
     return response.data
   }
 }

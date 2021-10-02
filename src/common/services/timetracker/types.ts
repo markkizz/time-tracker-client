@@ -11,3 +11,13 @@ export interface IUser {
   iat: number;
   exp: number;
 }
+
+export interface ILatestTimeEntry {
+  id: string;
+  currentDate: Date;
+  clockType: string;
+  time: Date;
+  status: string;
+  createdAt: Date;
+  updatedAt: Date;
+}

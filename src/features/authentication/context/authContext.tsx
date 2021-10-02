@@ -42,9 +42,10 @@ export const useProvideAuth = () => {
   }
 
   const signOut = async () => {
+    localStorage.removeItem('token')
+    setUser(undefined)
     setIsAuthenticated(false)
     setLocation('/login')
-    setUser(undefined)
   }
 
   useEffect(() => {
