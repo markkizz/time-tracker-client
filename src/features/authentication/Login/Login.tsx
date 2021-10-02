@@ -12,6 +12,7 @@ import Input, { PasswordInput } from '@/common/components/Input'
 import Button from '@/common/components/Button'
 import { Banner } from './components/Banners'
 import { AxiosError } from 'axios'
+import { useAuth } from '../hooks/useAuth'
 
 const initialFormLoginState = {
   username: '',
@@ -19,11 +20,12 @@ const initialFormLoginState = {
 }
 
 export const Login = () => {
-  const isAuthenticated = false
   const [_, setLocaltion] = useLocation()
 
   const [errorLogin, setErrorLogin] = useState('')
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
+
+  const auth = useAuth()
 
   const formik = useFormik({
     initialValues: initialFormLoginState,
@@ -31,8 +33,8 @@ export const Login = () => {
     onSubmit: async (values) => {
       try {
         setBtnLoading(true)
-        // TODO: handle system authentication
-        const response = await client.login(values.username, values.password)
+        await auth.signIn(values.username, values.password)
+        setLocaltion('/clock')
         setErrorLogin('')
       } catch (error) {
         const err = error as AxiosError
@@ -51,12 +53,6 @@ export const Login = () => {
       }
     }
   })
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      setLocaltion('/')
-    }
-  }, [isAuthenticated])
 
   useEffect(() => {
     setBtnLoading(true)

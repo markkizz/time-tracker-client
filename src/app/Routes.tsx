@@ -3,9 +3,10 @@ import { Redirect, Route, Switch, useLocation } from 'wouter-preact'
 
 import Home from '../features/clock'
 import { Login } from '@/features/authentication'
+import { useAuth } from '@/features/authentication/hooks/useAuth'
 
 const Routes = () => {
-  const isAuthenticated = false
+  const auth = useAuth()
   const [location, setLocation] = useLocation()
   useEffect(() => {
     if (location === '/') {
@@ -13,16 +14,14 @@ const Routes = () => {
     }
   }, [location])
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      setLocation('/login')
-    }
-  }, [isAuthenticated])
   return (
     <>
       <Switch location={location}>
-        <Route path="/login" component={Login} />
-        <Route path="/clock" component={Home} />
+        {!auth.isAuthenticated ? (
+          <Route path="/login" component={Login} />
+        ) : (
+          <Route path="/clock" component={Home} />
+        )}
         <Redirect to="/" />
       </Switch>
     </>
