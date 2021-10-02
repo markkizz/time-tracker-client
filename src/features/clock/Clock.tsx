@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { FunctionalComponent } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect, useState, useCallback } from 'preact/hooks'
 import Ripples from 'react-ripples'
 
 import { HourGlassLoadingWrapper } from '@/common/components/Loading'
@@ -12,7 +12,7 @@ import {
 } from '@/common/services/timetracker/types'
 
 const Clock: FunctionalComponent = () => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const [entryTime, setEntryTime] = useState<ILatestTimeEntry | null>(null)
   const [timer, setTimer] = useState<Date | null>(null)
@@ -29,15 +29,15 @@ const Clock: FunctionalComponent = () => {
     setEntryTime(response)
   }
 
-  const runTimer = () => {
+  const runTimer = useCallback( () => {
     const intervalDiffTime = setInterval(() => {
       setTimer(new Date())
     }, 1000)
     setDiffTimeInterval(intervalDiffTime)
     return intervalDiffTime
-  }
+  }, [diffTimeInterval])
 
-  const resetTimer = () => {
+  const resetTimer = useCallback(() => {
     setLoading(true)
     clearInterval(diffTimeInterval as number)
     setDiffTimeInterval(false)
@@ -47,7 +47,7 @@ const Clock: FunctionalComponent = () => {
     setTimeout(() => {
       setLoading(false)
     }, 1000)
-  }
+  }, [diffTimeInterval])
 
   useEffect(() => {
     ;(async () => {
