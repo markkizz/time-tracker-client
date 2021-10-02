@@ -1,0 +1,35 @@
+.hourglass {
+  display: block;
+  background: var(--secondary);
+  margin: 3em auto;
+  width: 2em;
+  height: 4em;
+  animation: hourglass 1s linear infinite;
+  overflow: hidden;
+}
+
+.outer {
+  fill: var(--contrast);
+}
+
+.middle {
+  fill: var(--secondary);
+}
+
+@keyframes hourglass {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: inset var(--primary) 0 -0em 0 0, inset var(--secondary) 0 -2em 0 0,
+      inset var(--primary) 0 -4em 0 0;
+  }
+  80% {
+    transform: rotate(0deg);
+    box-shadow: inset var(--primary) 0 -2em 0 0, inset var(--secondary) 0 -2em 0 0,
+      inset var(--primary) 0 -2em 0 0;
+  }
+  100% {
+    transform: rotate(180deg);
+    box-shadow: inset var(--primary) 0 -2em 0 0,
+      inset var(--secondary) 0 -2em 0 0, inset var(--primary) 0 -2em 0 0;
+  }
+}
