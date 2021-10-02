@@ -2,10 +2,9 @@ import { useEffect, useState } from 'preact/hooks'
 import { useLocation } from 'wouter-preact'
 import { useFormik } from 'formik'
 
-import client from '@/common/services/timetracker'
 import { loginSchema } from './schema'
 
-import logoSrc from '@/assets/hourglass.png'
+// import logoSrc from '@/assets/hourglass.png'
 
 import Card from '@/common/components/Card'
 import Input, { PasswordInput } from '@/common/components/Input'
@@ -68,7 +67,7 @@ export const Login = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className="row space-y-4">
             <div className="col-12 flex justify-center">
-              <img src={logoSrc} alt="logo hour glass" width="80" height="80" />
+              <img src="/hourglass.png" alt="logo hour glass" width="80" height="80" />
             </div>
             <div className="col-12 flex justify-center">
               {errorLogin && <Banner text={errorLogin} />}

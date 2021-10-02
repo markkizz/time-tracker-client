@@ -13,7 +13,9 @@ export default defineConfig({
       // Not necessary unless you consume a module using `createClass`
       'create-react-class': 'preact-compat/lib/create-react-class',
       // Not necessary unless you consume a module requiring `react-dom-factories`
-      'react-dom-factories': 'preact-compat/lib/react-dom-factories'
+      'react-dom-factories': 'preact-compat/lib/react-dom-factories',
+      "react-dom/test-utils": "preact/test-utils",
+      "react/jsx-runtime": "preact/jsx-runtime"
     }
   },
   plugins: [
@@ -25,6 +27,7 @@ export default defineConfig({
       mode: 'development',
       registerType: "prompt",
       base: '/',
+      includeAssets: ['hourglass.png'],
       manifest: {
         "name": "Simple time tracker",
         "short_name": "time tracker",
