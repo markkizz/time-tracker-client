@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios'
 import { clearToken } from '@/features/authentication/utils'
 import { HttpClient } from '../http'
-import { ILatestTimeEntry, ILoginResponse } from './types'
+import { ClockType, IClockingRequest, ILatestTimeEntry, ILoginResponse } from './types'
 
 export class TimeTrackerHttpClient {
   private _httpClient: HttpClient
@@ -57,5 +57,11 @@ export class TimeTrackerHttpClient {
   public async getLatestTimeEntry() {
     const response = await this._httpClient.get<ILatestTimeEntry>('/v1/timetracker')
     return response.data
+  }
+
+  public async clocking(type: ClockType) {
+    await this._httpClient.post<IClockingRequest>('/v1/timetracker', {
+      type
+    })
   }
 }

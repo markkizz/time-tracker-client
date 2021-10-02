@@ -29,7 +29,16 @@ const Clock: FunctionalComponent = () => {
     setEntryTime(response)
   }
 
-  const runTimer = useCallback( () => {
+  const onClocking = useCallback(async () => {
+    setLoading(true)
+    await TimeTracker.clocking(
+      entryTime?.clockType === ClockType.IN ? ClockType.OUT : ClockType.IN
+    )
+    await getLatestTimeEntry()
+    setLoading(false)
+  }, [entryTime?.clockType])
+
+  const runTimer = useCallback(() => {
     const intervalDiffTime = setInterval(() => {
       setTimer(new Date())
     }, 1000)
@@ -113,11 +122,14 @@ const Clock: FunctionalComponent = () => {
       <div className="f-screen h-screen flex justify-center items-center text-primary">
         {/* @ts-ignore */}
         <Ripples className="rounded-xl" color="rgba(0, 0, 0, .3)">
-          <div className="row w-auto mb-lg bg-seaBlue p-5 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg cursor-pointer">
+          <div
+            className="row w-auto mb-lg bg-seaBlue p-5 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg cursor-pointer"
+            onClick={onClocking}
+          >
             <div className="col-12 flex justify-center items-center mb-2 text-size-12px">
               {entryTime?.clockType === ClockType.IN
                 ? `Start @ ${getFormatCurentEntryTime()}`
-                : `Last clock-in @ ${getFormatCurentEntryTime()}`}
+                : `Clock Out @ ${getFormatCurentEntryTime()}`}
             </div>
             <div className="font-medium col-12 flex justify-center items-center mb-2">
               <div className="text-size-34px">
@@ -125,7 +137,7 @@ const Clock: FunctionalComponent = () => {
               </div>
             </div>
             <div className="col-12 flex justify-center items-center text-size-20px font-medium">
-              {entryTime?.clockType === ClockType.IN ? 'Clock In' : 'Clock Out'}
+              {entryTime?.clockType === ClockType.IN ? 'Clock Out' : 'Clock In'}
             </div>
           </div>
         </Ripples>

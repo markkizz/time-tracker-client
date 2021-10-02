@@ -22,6 +22,10 @@ export interface ILatestTimeEntry {
   updatedAt: Date;
 }
 
+export interface IClockingRequest {
+  type: ClockType
+}
+
 export enum ClockType {
   IN = "In",
   OUT = "Out"

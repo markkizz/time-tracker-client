@@ -55,10 +55,6 @@ export const Login = () => {
   })
 
   useEffect(() => {
-    setBtnLoading(true)
-    setTimeout(() => {
-      setBtnLoading(false)
-    }, 2500)
     return () => {
       setErrorLogin('')
       formik.resetForm()
