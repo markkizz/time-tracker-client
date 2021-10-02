@@ -21,3 +21,8 @@ export interface ILatestTimeEntry {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export enum ClockType {
+  IN = "In",
+  OUT = "Out"
+}

@@ -24,6 +24,7 @@ export default defineConfig({
         DEFAULT: '#E8F8FC'
       },
       neutralBlue: '#F5F8FA',
+      seaBlue: '#A5CDD9',
       error: {
         light: colors.red[200],
         DEFAULT: colors.red[600]
