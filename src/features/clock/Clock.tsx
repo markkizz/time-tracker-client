@@ -13,6 +13,7 @@ import {
 
 const Clock: FunctionalComponent = () => {
   const [loading, setLoading] = useState(true)
+  const [isGetEntryTime, setIsGetEntryTime] = useState(false)
 
   const [entryTime, setEntryTime] = useState<ILatestTimeEntry | null>(null)
   const [timer, setTimer] = useState<Date | null>(null)
@@ -24,10 +25,12 @@ const Clock: FunctionalComponent = () => {
     false
   )
 
-  const getLatestTimeEntry = async () => {
+  const getLatestTimeEntry = useCallback(async () => {
+    setIsGetEntryTime(true)
     const response = await TimeTracker.getLatestTimeEntry()
+    setIsGetEntryTime(false)
     setEntryTime(response)
-  }
+  }, [isGetEntryTime])
 
   const onClocking = useCallback(async () => {
     setLoading(true)
@@ -56,7 +59,7 @@ const Clock: FunctionalComponent = () => {
     setTimeout(() => {
       setLoading(false)
     }, 1000)
-  }, [diffTimeInterval])
+  }, [isGetEntryTime])
 
   useEffect(() => {
     ;(async () => {

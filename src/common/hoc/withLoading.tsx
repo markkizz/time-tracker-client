@@ -1,6 +1,6 @@
 import { FunctionalComponent } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
-import { useLocation } from 'wouter-preact'
+import useLocation from 'wouter-preact/use-location'
 import { HourGlassLoading } from '@/common/components/Loading'
 
 export function withLoading(
