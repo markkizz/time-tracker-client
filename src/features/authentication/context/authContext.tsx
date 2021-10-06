@@ -57,6 +57,7 @@ export const useProvideAuth = () => {
     if (!token || nowInUnix > expiredAt) {
       isAuthenticated && setIsAuthenticated(false)
       setLocation('/login')
+      setUser(undefined)
     } else {
       if (!user) {
         setUser(userAuth)

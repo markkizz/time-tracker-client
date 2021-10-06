@@ -29,10 +29,10 @@ export class TimeTrackerHttpClient {
       (response) => response,
       (error) => {
         const err = error as AxiosError
-        if (err.response?.status === 401) {
+        if (err.response?.status === 401 || err.response?.data?.statusCode === 401) {
           clearToken()
         }
-        Promise.reject(error)
+        return Promise.reject(error)
       }
     )
 

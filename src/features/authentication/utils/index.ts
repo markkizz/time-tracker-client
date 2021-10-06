@@ -1,6 +1,4 @@
-import { useAuth } from "../hooks/useAuth"
-
 export function clearToken() {
-  const auth = useAuth()
-  auth.signOut()
+  localStorage.removeItem('token')
+  window.location.href = '/'
 }
