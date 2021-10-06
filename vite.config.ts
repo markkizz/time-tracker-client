@@ -22,10 +22,10 @@ export default defineConfig({
     VitePWA({
       injectRegister: "inline",
       workbox: {
-        cleanupOutdatedCaches: true
+        cleanupOutdatedCaches: false
       },
       mode: 'development',
-      registerType: "prompt",
+      registerType: "autoUpdate",
       base: '/',
       includeAssets: ['hourglass.png', 'favicon.ico'],
       manifest: {
