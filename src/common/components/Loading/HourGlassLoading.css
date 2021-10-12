@@ -1,6 +1,6 @@
 .hourglass {
   display: block;
-  background: var(--secondary);
+  background: var(--neutralBlue);
   margin: 3em auto;
   width: 2em;
   height: 4em;
@@ -13,23 +13,23 @@
 }
 
 .middle {
-  fill: var(--secondary);
+  fill: var(--neutralBlue);
 }
 
 @keyframes hourglass {
   0% {
     transform: rotate(0deg);
-    box-shadow: inset var(--primary) 0 -0em 0 0, inset var(--secondary) 0 -2em 0 0,
+    box-shadow: inset var(--primary) 0 -0em 0 0, inset var(--neutralBlue) 0 -2em 0 0,
       inset var(--primary) 0 -4em 0 0;
   }
   80% {
     transform: rotate(0deg);
-    box-shadow: inset var(--primary) 0 -2em 0 0, inset var(--secondary) 0 -2em 0 0,
+    box-shadow: inset var(--primary) 0 -2em 0 0, inset var(--neutralBlue) 0 -2em 0 0,
       inset var(--primary) 0 -2em 0 0;
   }
   100% {
     transform: rotate(180deg);
     box-shadow: inset var(--primary) 0 -2em 0 0,
-      inset var(--secondary) 0 -2em 0 0, inset var(--primary) 0 -2em 0 0;
+      inset var(--neutralBlue) 0 -2em 0 0, inset var(--primary) 0 -2em 0 0;
   }
 }
